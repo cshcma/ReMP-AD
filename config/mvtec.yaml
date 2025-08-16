@@ -1,0 +1,31 @@
+dataset_test: mvtec
+dataset_train: visa
+
+test_data_path: ./data/mvtec
+train_data_path: ./data/visa
+
+model: ViT-L-14-336
+pretrained: openai
+features_list: [6, 12, 18, 24]
+few_shot_features: [6, 12, 18, 24]
+image_size: 518
+batch_size: 8
+
+k_shot: 4
+seed: 10
+epoch: 15
+save_freq: 15
+device: cuda:0
+
+mask_topk: 100
+mask_th: 0.5
+mask_weight: [1.2, 0.8]
+mask_layers: [12, 18, 24]
+
+lambd: 0.64
+region_alpha: 0.2
+
+
+clip_config_path: ./open_clip/model_configs/ViT-L-14-336.json
+save_path: ./result/mvtec
+checkpoint_path: ./result/mvtec/epoch_15.pth
